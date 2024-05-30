@@ -1,4 +1,4 @@
-# Working to to bridge the gap between Farmers, Experts and the government
+# Working to to bridge the gap between Farmers, Experts and the government - G2F-App
 
 [//]: # (Archicture)
 Presentation - Screens and UI
@@ -24,5 +24,8 @@ This layer contains the following:
 
 Features
 The features of the applications are:
-
+1. Loans
+2. Weather Forecast
+3. Buying subsidized fertilizer
+4. Agri-Support
 
