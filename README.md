@@ -28,4 +28,5 @@ The features of the applications are:
 2. Weather Forecast
 3. Buying subsidized fertilizer
 4. Agri-Support
+5. Notifications - In-App and Sms Notification
 
