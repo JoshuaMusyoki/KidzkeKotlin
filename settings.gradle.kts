@@ -1,12 +1,16 @@
 pluginManagement {
+    includeBuild("build-logic")
+
+//    include ':build-logic:convention'
     repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
+        google()
+//        google {
+//            content {
+//                includeGroupByRegex("com\\.android.*")
+//                includeGroupByRegex("com\\.google.*")
+//                includeGroupByRegex("androidx.*")
+//            }
+//        }
         mavenCentral()
         gradlePluginPortal()
     }
@@ -20,6 +24,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Kidzo24Kotlin"
+
 include(":app")
 include(":data")
 include(":local")
@@ -28,3 +33,5 @@ include(":remote")
 include(":presentation")
 include(":domain")
 include(":kidzke")
+include(":datasource")
+//include(":convention")
