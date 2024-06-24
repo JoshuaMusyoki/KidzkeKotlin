@@ -15,6 +15,10 @@ plugins {
 }
 
 allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
 
     ktlint {
@@ -27,18 +31,18 @@ allprojects {
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
         kotlinOptions {
-            jvmTarget = "1.8"
+            jvmTarget = "17"
         }
     }
 }
 
 subprojects {
-//    apply(plugin = "io.gitlab.arturbosch.detekt")
-//    detekt {
-//        config = files("${project.rootDir}/detect.yml")
-//        parallel = true
-//        buildUponDefaultConfig = true
-//    }
+    apply(plugin = "io.gitlab.arturbosch.detekt")
+    detekt {
+        config = files("${project.rootDir}/detect.yml")
+        parallel = true
+        buildUponDefaultConfig = true
+    }
 
     apply(plugin = "com.diffplug.spotless")
     spotless {

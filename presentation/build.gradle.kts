@@ -1,47 +1,36 @@
+import com.android.build.api.dsl.Packaging
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-//    alias(libs.plugins.kidzke.android.library)
-//    alias(libs.plugins.kidzke.android.hilt)
-//    alias(libs.plugins.kidzke.android.library.compose)
+    alias(libs.plugins.kidzke.android.library)
+    alias(libs.plugins.kidzke.android.hilt)
+    alias(libs.plugins.kidzke.android.library.compose)
 }
 
 android {
     namespace = "com.nerds.presentation"
     compileSdk = 34
-
     defaultConfig {
-        applicationId = "com.nerds.presentation"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+        vectorDrawables {
+            useSupportLibrary = true
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
     kotlinOptions {
-        jvmTarget = "1.8"
+        freeCompilerArgs + "-Xjvm-default=all"
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            pickFirsts.add("META-INF/io.netty.versions.properties")
+        }
     }
 }
 
 dependencies {
     implementation(project(":domain"))
     implementation(project(":kidzke"))
-//    implementation(project(":datasource:remote"))
+    implementation(project(":remote"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -62,4 +51,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+kotlin {
+    sourceSets {
+        all {
+            languageSettings.apply {
+                optIn("androidx.compose.material3.ExperimentalMaterial3Api")
+            }
+        }
+    }
 }

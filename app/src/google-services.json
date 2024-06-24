@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "396377642704",
+    "project_id": "kidzke24",
+    "storage_bucket": "kidzke24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396377642704:android:8e676d033133fdf2a1b0d5",
+        "android_client_info": {
+          "package_name": "com.nerds.kidzo24kotlin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB43jyWGxPndAKaOlfiHD7wJFi6fFPVvMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

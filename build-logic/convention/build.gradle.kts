@@ -1,54 +1,56 @@
 plugins {
     `kotlin-dsl`
 }
-group ="com.nerds.buildlogic"
+
+group = "com.nerds.buildlogic"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach{
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
 
 dependencies {
-//    compileOnly(libs.android.gradlePlugin)
-//    compileOnly(libs.kotlin.gradlePlugin)
-//    compileOnly(libs.firebase.crashlytics.gradlePlugin)
-//    compileOnly(libs.firebase.performance.gradlePlugin)
-//    compileOnly(libs.ksp.gradlePlugin)
+    implementation(libs.firebase.crashlytics.gradlePlugin)
+    compileOnly(libs.android.gradlePlugin)
+    compileOnly(libs.kotlin.gradlePlugin)
+    compileOnly(libs.firebase.crashlytics.gradlePlugin)
+    compileOnly(libs.firebase.performance.gradlePlugin)
+    compileOnly(libs.ksp.gradlePlugin)
 }
 
 gradlePlugin {
     plugins {
-        register("androidLibrary"){
+        register("androidLibrary") {
             id = "kidzke.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
-        register("androidRoom"){
+        register("androidRoom") {
             id = "kidzke.android.room"
             implementationClass = "AndroidRoomConventionPlugin"
         }
-        register("androidHilt"){
-            id ="kidzke.android.hilt"
+        register("androidHilt") {
+            id = "kidzke.android.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
         }
-        register("androidLibraryCompose"){
+        register("androidLibraryCompose") {
             id = "kidzke.android.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
-        register("androidFirebase"){
-            id ="kidzke.android.application.firebase"
+        register("androidFirebase") {
+            id = "kidzke.android.application.firebase"
             implementationClass = "AndroidApplicationFirebaseConventionPlugin"
         }
-        register("androidLibraryFirebase"){
+        register("androidLibraryFirebase") {
             id = "kidzke.android.library.firebase"
             implementationClass = "AndroidLibraryFirebaseConventionPlugin"
         }
-        register("androidApplication"){
+        register("androidApplication") {
             id = "kidzke.android.application"
             implementationClass = "AndroidApplicationConventionPlugin"
         }
