@@ -1,20 +1,14 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kidzke.android.library)
+    alias(libs.plugins.kidzke.android.library.compose)
 }
 
 android {
     namespace = "com.nerds.kidzke"
-    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.nerds.kidzke"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -26,21 +20,24 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes.add("META-INF/io.netty.versions.properties")
+            pickFirsts.add("META-INF/io.netty.versions.properties")
+        }
     }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.lifecycle.runtimeKtx)
+    implementation(libs.timber)
+
+    androidTestImplementation(libs.android.test.junit4)
+
+    testImplementation(libs.bundles.test)
+    testImplementation(libs.test.robolectric)
 }

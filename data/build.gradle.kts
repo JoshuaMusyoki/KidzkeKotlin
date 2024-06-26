@@ -1,48 +1,54 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kidzke.android.library)
+    alias(libs.plugins.kidzke.android.hilt)
+    alias(libs.plugins.kidzke.android.library.firebase)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
     namespace = "com.nerds.data"
-    compileSdk = 34
 
-    defaultConfig {
-        applicationId = "com.nerds.data"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
+        isCoreLibraryDesugaringEnabled = true
     }
 }
 
 dependencies {
-    implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.androidx.core.ktx)
+    implementation(project(":domain"))
+    implementation(project(":datasource:local"))
+    implementation(project(":datasource:remote"))
+
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-//    test
+    api(libs.kotlin.coroutines.datetime)
+    implementation(libs.timber)
+    implementation(libs.datastore)
+    implementation(libs.kotlin.coroutines.android)
+    implementation(libs.bundles.ktor)
+
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
+    implementation(libs.lifecycle.livedataKtx)
+
+    implementation(libs.work.runtime)
+
+    releaseImplementation(libs.chucker.release)
+    debugImplementation(libs.chucker.debug)
+
+    testImplementation(libs.app.cash.turbine.turbine)
     testImplementation(libs.kotlin.coroutines.test)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.test.androidx.core)
+    testImplementation(libs.test.robolectric)
+    testImplementation(libs.ktor.mock)
+    testImplementation(libs.test.mockk)
+}
+
+kotlin {
+    sourceSets {
+        all {
+            languageSettings.apply {
+                optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
+            }
+        }
+    }
 }

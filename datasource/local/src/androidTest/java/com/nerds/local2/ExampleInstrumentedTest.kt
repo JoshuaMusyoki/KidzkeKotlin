@@ -1,4 +1,4 @@
-package com.nerds.datasource.remote
+package com.nerds.local2
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.nerds.datasource.remote", appContext.packageName)
+        assertEquals("com.nerds.local2", appContext.packageName)
     }
 }

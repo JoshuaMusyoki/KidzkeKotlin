@@ -1,4 +1,4 @@
-package com.nerds.datasource.local
+package com.nerds.remote
 
 import org.junit.Test
 

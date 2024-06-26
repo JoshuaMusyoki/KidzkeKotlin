@@ -26,11 +26,11 @@
             <option value="$PROJECT_DIR$/build-logic/convention" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/datasource" />
+            <option value="$PROJECT_DIR$/datasource/local" />
+            <option value="$PROJECT_DIR$/datasource/remote" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/kidzke" />
-            <option value="$PROJECT_DIR$/local" />
             <option value="$PROJECT_DIR$/presentation" />
-            <option value="$PROJECT_DIR$/remote" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

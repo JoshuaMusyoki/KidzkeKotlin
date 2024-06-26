@@ -18,7 +18,7 @@ class AndroidHiltConventionPlugin : Plugin<Project> {
                 "implementation"(libs.findLibrary("android.hilt.navigation.compose").get())
                 "implementation"(libs.findLibrary("hilt.work").get())
                 "implementation"(libs.findLibrary("hilt.common").get())
-                "ksp"(libs.findLibrary("android.hilt.androidx.compiler").get())
+//                "ksp"(libs.findLibrary("android.hilt.androidx.compiler").get())
                 "ksp"(libs.findLibrary("android.hilt.compiler").get())
                 "kspAndroidTest"(libs.findLibrary("android.hilt.compiler").get())
                 "kspTest"(libs.findLibrary("android.hilt.compiler").get())
