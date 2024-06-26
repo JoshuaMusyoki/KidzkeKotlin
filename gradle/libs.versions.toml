@@ -1,27 +1,30 @@
 [versions]
-agp = "8.5.0-beta02"
+agp = "8.5.0"
+firebaseCrashlyticsGradle = "3.1.2"
 kotlin = "1.9.24"
 coreKtx = "1.13.1"
-junit = "4.13.2"
+junit4 = "4.13.2"
+junit = "1.1.5"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
-lifecycleRuntimeKtx = "2.8.0"
-lifecycleViewmodelCompose = "2.8.0"
+lifecycleRuntimeKtx = "2.8.2"
+lifecycleViewmodelCompose = "2.8.2"
 activityCompose = "1.9.0"
-composeBom = "2024.05.00"
-generativeai = "0.6.0"
+activity = "1.9.0"
+composeBom = "2024.06.00"
+generativeai = "0.8.0"
 googleAndroidLibrariesMapsplatformSecretsGradlePlugin = "2.0.1"
-appcompat = "1.6.1"
+appcompat = "1.7.0"
 material = "1.12.0"
 composeCompiler = "1.5.14"
 coroutines = "1.7.3"
 coroutines_datetime = "0.4.0"
 desugar_sdk_libs="2.0.4"
-gradlePlugin="8.1.4"
-gmsplugin = "4.4.1"
+gradlePlugin= "8.4.2"
+gmsplugin = "4.4.2"
 hilt="2.50"
 ksp="1.9.24-1.0.20"
-lifecycle="2.8.0"
+lifecycle="2.8.2"
 room="2.6.1"
 ktor="2.3.11"
 splash="1.0.1"
@@ -51,20 +54,21 @@ test_corektx = "1.5.0"
 test_robolectric = "4.10.3"
 test_navigation = "2.7.7"
 test_mockk = "1.12.7"
-firebase_bom = "33.0.0"
+firebase_bom = "33.1.0"
 firebase_common = "21.0.0"
 turbine = "1.0.0"
 toml_checker = "0.42.0"
 toml_updater = "0.3.1"
+firebaseCrashlytics = "19.0.1"
+#junit4 = "4.13.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+junit = { module = "junit:junit", version.ref = "junit4" }
+junit-androidx-ktx = { module = "androidx.test.ext:junit-ktx", version.ref = "junit"}
+android-test-junit4 = { module = "androidx.test.ext:junit", version.ref = "junit"}
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+compose-activity = { module = "androidx.activity:activity-compose", version.ref = "activity"}
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
@@ -113,6 +117,8 @@ kotlin-coroutines-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime"
 kotlin-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "coroutines" }
 gms-play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "auth"}
 lifecycle-livedataKtx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
+lifecycle-runtimeKtx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottie" }
 paging-common = { module = "androidx.paging:paging-common-ktx", version.ref = "paging"}
 paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging"}
@@ -147,13 +153,27 @@ chucker-debug = { module = "com.github.chuckerteam.chucker:library", version.ref
 chucker-release = { module = "com.github.chuckerteam.chucker:library-no-op", version.ref = "chucker" }
 
 app-cash-turbine-turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine"}
+#Dependencies of the included build-logic
+firebase-crashlytics-gradlePlugin = { module = "com.google.firebase:firebase-crashlytics-gradle", version.ref = "firebaseCrashlyticsPlugin" }
+firebase-performance-gradlePlugin = { module = "com.google.firebase:perf-plugin", version.ref = "firebasePerfPlugin" }
+android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradlePlugin = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+google-firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics", version.ref = "firebaseCrashlytics" }
 
+[bundles]
+compose = ["coil-compose", "coil-svg", "compose-activity", "compose-compiler", "compose-material-3", "compose-materialIcons", "compose-runtimeLivedata", "compose-ui", "compose-ui-util", "compose-ui-tooling", "compose-ui-tooling-preview", "paging-compose", "compose-preview-customview", "compose-preview-customview-poolingcontainer", "compose-constraintlayout", "compose-lifecycle-runtime"]
+lifecycle = ["lifecycle-livedataKtx", "lifecycle-runtimeKtx", "lifecycle-viewmodel-compose"]
+room = ["room-ktx", "room-paging", "room-runtime"]
+ktor = ["ktor-core", "ktor-android", "ktor-json", "ktor-content-negotiation", "ktor-auth", "ktor-logging", "ktor-okhttp"]
+firebase = ["firebase-messaging", "firebase-crashlytics", "firebase-analytics", "firebase-performance", "firebase-remote-config", "firebase-common"]
+test = ["junit", "junit-androidx-ktx"]
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
+android-application = { id = "com.android.application", version.ref = "gradlePlugin" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 google-android-libraries-mapsplatform-secrets-gradle-plugin = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "googleAndroidLibrariesMapsplatformSecretsGradlePlugin" }
-android-library={id="com.android.library", version.ref="agp"}
+android-library={id="com.android.library", version.ref="gradlePlugin"}
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlyticsPlugin" }
 firebase-perf = { id = "com.google.firebase.firebase-perf", version.ref = "firebasePerfPlugin" }
