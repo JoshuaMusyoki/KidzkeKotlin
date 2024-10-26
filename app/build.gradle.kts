@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.kidzke.android.application)
+    alias(libs.plugins.jetbrains.kotlin.android)
+//    id("org.jetbrains.kotlin.plugin.compose")
     alias(libs.plugins.kidzke.android.hilt)
     alias(libs.plugins.kidzke.android.application.firebase)
 }

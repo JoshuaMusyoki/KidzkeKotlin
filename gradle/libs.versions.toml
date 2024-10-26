@@ -1,69 +1,73 @@
 [versions]
-agp = "8.5.0"
+agp = "8.5.2"
+compiler = "1.0.0"
 firebaseCrashlyticsGradle = "3.1.2"
-kotlin = "1.9.24"
+kotlin = "2.0.20"
 coreKtx = "1.13.1"
 junit4 = "4.13.2"
-junit = "1.1.5"
+junit = "1.2.1"
 junitVersion = "1.1.5"
-espressoCore = "3.5.1"
+espressoCore = "3.6.1"
+ktorClientCore = "2.0.0"
+ktorClientAndroid = "2.0.0"
 lifecycleRuntimeKtx = "2.8.2"
 lifecycleViewmodelCompose = "2.8.2"
 activityCompose = "1.9.0"
-activity = "1.9.0"
-composeBom = "2024.06.00"
-generativeai = "0.8.0"
+activity = "1.9.3"
+composeBom = "2024.10.00"
+generativeai = "0.9.0"
 googleAndroidLibrariesMapsplatformSecretsGradlePlugin = "2.0.1"
 appcompat = "1.7.0"
 material = "1.12.0"
-composeCompiler = "1.5.14"
-coroutines = "1.7.3"
+composeCompiler = "1.5.15"
+coroutines = "1.9.0"
 coroutines_datetime = "0.4.0"
-desugar_sdk_libs="2.0.4"
-gradlePlugin= "8.4.2"
+desugar_sdk_libs="2.1.2"
+gradlePlugin= "8.7.1"
 gmsplugin = "4.4.2"
 hilt="2.50"
-ksp="1.9.24-1.0.20"
-lifecycle="2.8.2"
+ksp="2.0.0-1.0.21"
+lifecycle="2.8.6"
 room="2.6.1"
 ktor="2.3.11"
 splash="1.0.1"
-firebaseCrashlyticsPlugin="3.0.1"
+firebaseCrashlyticsPlugin="3.0.2"
 chucker="4.0.0"
-remote-config="22.0.0"
-detekt = "1.14.2"
+remote-config="22.0.1"
+detekt = "1.19.0"
 klint="11.6.1"
 spotless="6.4.2"
 hilt-second="1.2.0"
-runtime="2.9.0"
+runtime="2.9.1"
 coil="2.5.0"
 preview-custom-view="1.2.0-alpha02"
 poolingContainer="1.0.0"
-constraintlayout="1.1.0-alpha13"
+constraintlayout="1.1.0-rc01"
 gson="2.10.1"
 swiperefresh="0.27.0"
 firebasePerfPlugin = "1.4.2"
 
 auth = "21.2.0"
 lottie = "6.0.0"
-paging = "3.3.0"
+paging = "3.3.2"
 result_jvm = "5.2.1"
 datastore = "1.1.1"
 timber = "5.0.1"
-test_corektx = "1.5.0"
+test_corektx = "1.6.1"
 test_robolectric = "4.10.3"
-test_navigation = "2.7.7"
+test_navigation = "2.8.3"
 test_mockk = "1.12.7"
-firebase_bom = "33.1.0"
+firebase_bom = "33.5.1"
 firebase_common = "21.0.0"
 turbine = "1.0.0"
 toml_checker = "0.42.0"
 toml_updater = "0.3.1"
-firebaseCrashlytics = "19.0.1"
+firebaseCrashlytics = "19.2.1"
 #junit4 = "4.13.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+compiler = { module = "org.jetbrains.compose.compiler:compiler", version.ref = "compiler" }
 junit = { module = "junit:junit", version.ref = "junit4" }
 junit-androidx-ktx = { module = "androidx.test.ext:junit-ktx", version.ref = "junit"}
 android-test-junit4 = { module = "androidx.test.ext:junit", version.ref = "junit"}
@@ -79,6 +83,8 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 generativeai = { group = "com.google.ai.client.generativeai", name = "generativeai", version.ref = "generativeai" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+#ktor-client-android-v200 = { module = "io.ktor:ktor-client-android", version.ref = "ktorClientAndroid" }
+#ktor-client-core-v200 = { module = "io.ktor:ktor-client-core", version.ref = "ktorClientCore" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 android-hilt={module="com.google.dagger:hilt-android", version.ref="hilt"}
@@ -94,7 +100,7 @@ androidx-splashscreen={module="androidx.core:core-splashscreen", version.ref="sp
 coil-compose={module="io.coil-kt:coil-compose", version.ref="coil"}
 coil-svg={module="io.coil-kt:coil-svg", version.ref="coil"}
 compose-compiler={module="androidx.compose.compiler:compiler", version.ref="composeCompiler"}
-compose-material-3={module="androidx.compose.material3:material3"}
+compose-material3={module="androidx.compose.material3:material3"}
 compose-materialIcons={module="androidx.compose.material:material-icons-extended"}
 compose-runtimeLivedata={module="androidx.compose.runtime:runtime-livedata"}
 compose-ui={module="androidx.compose.ui:ui"}
@@ -162,7 +168,7 @@ ksp-gradlePlugin = { module = "com.google.devtools.ksp:com.google.devtools.ksp.g
 google-firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics", version.ref = "firebaseCrashlytics" }
 
 [bundles]
-compose = ["coil-compose", "coil-svg", "compose-activity", "compose-compiler", "compose-material-3", "compose-materialIcons", "compose-runtimeLivedata", "compose-ui", "compose-ui-util", "compose-ui-tooling", "compose-ui-tooling-preview", "paging-compose", "compose-preview-customview", "compose-preview-customview-poolingcontainer", "compose-constraintlayout", "compose-lifecycle-runtime"]
+compose = ["coil-compose", "coil-svg", "compose-activity", "compose-compiler", "compose-material3", "compose-materialIcons", "compose-runtimeLivedata", "compose-ui", "compose-ui-util", "compose-ui-tooling", "compose-ui-tooling-preview", "paging-compose", "compose-preview-customview", "compose-preview-customview-poolingcontainer", "compose-constraintlayout", "compose-lifecycle-runtime"]
 lifecycle = ["lifecycle-livedataKtx", "lifecycle-runtimeKtx", "lifecycle-viewmodel-compose"]
 room = ["room-ktx", "room-paging", "room-runtime"]
 ktor = ["ktor-core", "ktor-android", "ktor-json", "ktor-content-negotiation", "ktor-auth", "ktor-logging", "ktor-okhttp"]

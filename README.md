@@ -1,4 +1,4 @@
-# Working to to bridge the gap between Farmers, Experts and the government - G2F-App
+# Project Structure
 
 [//]: # (Archicture)
 Presentation - Screens and UI
